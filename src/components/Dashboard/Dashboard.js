@@ -27,10 +27,8 @@ class Dashboard extends Component {
               <th>Created On</th>
               <th>Updated On</th>
               <th>User ID</th>
-              <th data-api="priority">Priority</th>
               <th data-api="lon">Lon</th>
               <th data-api="lat">Lat</th>
-              <th data-api="dead">Dead</th>
               <th>Actions</th>
             </tr>
           </thead>
