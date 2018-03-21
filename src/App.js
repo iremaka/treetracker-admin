@@ -8,21 +8,24 @@ class App extends Component {
     super();
     this.state = {
       records: []
-    }
+    };
   }
+
+
 
   //better not to use componentWillMount in general, including for fetching data
   //instead prefer to use componentDidMount() 
   //1-27-2018 iremaka
   componentDidMount() {
 
+        const optz = process.env.REACT_APP_OPTIONAL_ADMIN_PREFIX ? process.env.REACT_APP_OPTIONAL_ADMIN_PREFIX : "";
 
         //created 1-27-2018 iremaka (begin)
 	var head = document.getElementsByTagName('head')[0];
 	(function() {
 		var css = [
-			'/css/font-awesome.min.css',
-                        '/css/jquery.contextMenu.min.css'
+			optz + '/css/font-awesome.min.css',
+                        optz + '/css/jquery.contextMenu.min.css'
 		],
 		i = 0,
 		link = document.createElement('link'),
@@ -39,21 +42,21 @@ class App extends Component {
 
         const script1 = document.createElement("script");
 
-        script1.src = "/datatables.min.js";
+        script1.src = optz + "/datatables.min.js";
         script1.async = false;
 
         document.body.appendChild(script1);
 
         const script1b = document.createElement("script");
 
-        script1b.src = "/jQuery.contextmenu.js";
+        script1b.src = optz + "/jQuery.contextmenu.js";
         script1b.async = false;
 
         document.body.appendChild(script1b);
 
         const script1c = document.createElement("script");
 
-        script1c.src = "/jquery.ui.position.js";
+        script1c.src = optz + "/jquery.ui.position.js";
         script1c.async = false;
 
         document.body.appendChild(script1c);
@@ -78,6 +81,10 @@ class App extends Component {
   //1-27-2018 iremaka (begin)
   componentDidUpdate(prevProps, prevState)
   { 
+
+    const optz = process.env.REACT_APP_OPTIONAL_ADMIN_PREFIX ? process.env.REACT_APP_OPTIONAL_ADMIN_PREFIX : "";
+
+
     /*console.log("prevProps"); 
     console.log(prevProps); 
     console.log("prevState"); 
@@ -88,7 +95,7 @@ class App extends Component {
     {
         const script2 = document.createElement("script");
 
-        script2.src = "/c1.js";
+        script2.src = optz + "/c1.js";
         script2.async = false;
 
         document.body.appendChild(script2);
